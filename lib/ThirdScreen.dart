@@ -28,6 +28,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
     d = widget.b;
     length = c * d;
     values = List.generate(c * d, (i) => i + 1);
+    isSelected = List.filled(c * d, false, growable: true);
   }
   @override
   Widget build(BuildContext context) {
@@ -64,7 +65,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
                     child: ElevatedButton(
                       child: Text("Search"),
                       onPressed: () {
-                        isSelected = [false,false,false,false,false,false];
+                        isSelected = List.filled(c * d,false,growable: true);
                         searchText = searchController.text;
                         for(int i = 0; i < values.length; i++){
                           if(int.tryParse(searchText) == values[i]){
